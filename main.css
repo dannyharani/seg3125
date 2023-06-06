@@ -1,0 +1,91 @@
+body {
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
+    background: rgb(3,16,41);
+    background: linear-gradient(to right bottom, #031029, #32180C);
+    background-attachment: fixed;
+}
+
+#nav-logo {
+    font-family: 'Yellowtail', cursive;
+    font-size: 40px;
+}
+
+.nav-link {
+    color: white;
+}
+
+.hero-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 80px;
+    line-height: 64.5%;
+}
+
+#hero-text-cursive {
+    font-family: 'Yellowtail', cursive;
+    font-size: 100px;
+    line-height: 92%;
+}
+
+.btn-primary {
+    background-color: #00AD45;
+    border: none;
+    border-radius: 22px;
+    width: 250px;
+    margin-top: auto;
+}
+
+.btn-primary:hover {
+    background-color: #057432;
+    border: none;
+    border-radius: 22px;
+}
+
+.btn-primary:focus {
+    background-color: #057432;
+    border: none;
+    border-radius: 22px;
+}
+
+.btn-primary:not(:disabled):not(:disabled):active {
+    background-color: #0b602d;
+    border: none;
+    border-radius: 22px;
+}
+
+.btn-outline-secondary {
+    border-radius: 22px;
+    width: 250px;
+    color: white;
+    border-color: white;
+    border-width: 2px;
+    border-style: solid;
+}
+
+
+.btn-outline-secondary:hover {
+    color: #031029;
+    font-weight: 500;
+    background-color: white;
+    border-color: white;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.btn-outline-secondary:focus {
+    color: #031029;
+    font-weight: 500;
+    background-color: white;
+    border-color: white;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.btn-outline-secondary:not(:disabled):not(:disabled):active {
+    color: #031029;
+    font-weight: 500;
+    background-color: rgb(216, 234, 241);
+    border-color: rgb(201, 229, 240);
+    border-width: 2px;
+    border-style: solid;
+}
