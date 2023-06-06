@@ -1,2 +1,2 @@
 # Kardz Website
-[Launch Website] (https://dannyharani.github.io/seg3125/)
+[Launch Website](https://dannyharani.github.io/seg3125/)
