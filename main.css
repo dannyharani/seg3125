@@ -4,6 +4,7 @@ body {
     background: rgb(3,16,41);
     background: linear-gradient(to right bottom, #031029, #32180C);
     background-attachment: fixed;
+    color: white;
 }
 
 #nav-logo {
@@ -15,16 +16,82 @@ body {
     color: white;
 }
 
+.nav-active-link {
+    text-decoration: underline;
+    text-decoration-color: #00AD45;
+}
+
 .hero-text {
+    color: white;
+    display: inline;
     font-family: 'Outfit', sans-serif;
     font-size: 80px;
     line-height: 64.5%;
 }
 
-#hero-text-cursive {
+.hero-text-cursive {
     font-family: 'Yellowtail', cursive;
     font-size: 100px;
     line-height: 92%;
+}
+
+.page-title {
+    margin: 40px;
+    display: block;
+    text-align: center;
+}
+
+
+.package-holder-holder {
+    text-align: center;
+    align-content: center;
+}
+
+.expert-photo {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    top: 75px;
+    filter: drop-shadow(9px 9px 7px #410303ac);
+    margin: 0;
+}
+
+.package-holder {
+    width: auto;
+    padding: 70px 0px 50px 0;
+    background: rgb(248, 61, 20);
+    background: linear-gradient(to right bottom, rgb(248, 61, 20, 38%), rgb(130, 4, 174, 44%));
+    text-align: center;
+    border-radius: 40px;
+    align-content: center;
+}
+
+.package-dif {
+    padding: 2em 0;
+}
+
+.expert-description {
+    width: 70%;
+    margin: auto;
+}
+
+.service-not-provided {
+    color: rgb(255, 255, 255, 60%);
+    text-decoration: line-through;
+}
+
+.splitter {
+    background-color: white;
+    width: 26px;
+    border-top: 3px solid white;
+    border-radius: 5px;
+    margin: auto;
+}
+
+.btn-expert {
+    margin: auto;
+    position: relative;
+    top: -25px;
 }
 
 .btn-primary {
@@ -61,7 +128,6 @@ body {
     border-width: 2px;
     border-style: solid;
 }
-
 
 .btn-outline-secondary:hover {
     color: #031029;
