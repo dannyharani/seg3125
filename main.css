@@ -67,12 +67,66 @@ body {
 }
 
 .package-dif {
-    padding: 2em 0;
+    padding: 1em 0;
 }
 
 .expert-description {
     width: 70%;
     margin: auto;
+}
+
+.contact-holder-holder {
+    text-align: center;
+}
+
+.contact-holder {
+    height: 200px;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.contact-img-div {
+    height: 180px;
+    position: relative;
+    margin-left: 0;
+}
+
+.contact-photo {
+    position: absolute;
+    width: 120px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+
+    filter: drop-shadow(0 0 10px #2081e1cf);
+}
+
+.about-photo {
+    position: absolute;
+    width: 80px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+
+.about-container {
+    text-align: left;
+}
+
+.about-info {
+    margin-left: 20%;
+}
+
+.booking-subsection {
+    text-align: center;
+    display: inline;
+    white-space: nowrap;
 }
 
 .service-not-provided {
@@ -86,6 +140,7 @@ body {
     border-top: 3px solid white;
     border-radius: 5px;
     margin: auto;
+    margin-bottom: 20px;
 }
 
 .btn-expert {
