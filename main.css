@@ -78,6 +78,7 @@ body {
 .expert-description {
     width: 70%;
     margin: auto;
+    text-align: left;
 }
 
 .contact-holder-holder {
