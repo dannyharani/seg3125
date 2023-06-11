@@ -305,14 +305,22 @@ span.unavail-tag {
 }
 
 .date-time-picker {
-    display: inline-flex;
+    display: flex;
     margin-top: 30px;
+    vertical-align: middle;
 }
 
 .date-container {
     display: inline-flex;
     padding: 0 20px;
     min-width: 130px;
+    margin-top: 20px;
+}
+
+.date-container-less {
+    display: inline-flex;
+    min-width: 130px;
+    margin-top: 20px;
 }
 
 .date-container .arrow-btn-avail {
