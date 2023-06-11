@@ -37,45 +37,155 @@
         </div>
     </nav>
 
-    <div class="page-title">
-        <h1 class="hero-text">get</h1>
-        <h1 class="hero-text hero-text-cursive"> your </h1>
-        <h1 class="hero-text">appointment</h1>
-    </div>
+    <div class="main-content-booking">
 
-    <div class="booking-subsection">
-        <h1>on</h1>
-        <div class="date-selector-container">
-            <p>sunday</p>
-            <div>
-                <button class="prev-date"></button>
-                <span id="selected-month"> july </span>
-                <button class="next-date"></button>
-            </div>
-            <div>
-                <span id="selected-day">25</span>
-                <button class="dropdown"></button>
-            </div>
-            <p>at</p>
-            <div>
-                <span id="selected-hour">2am</span>
-                <button class="dropdown"></button>
+        <div class="page-title">
+            <h1 class="hero-text">get</h1>
+            <h1 class="hero-text hero-text-cursive"> your </h1>
+            <h1 class="hero-text">appointment</h1>
+        </div>
+        <div id="date-subsection" class="booking-subsection">
+            <h1>on</h1>
+            <div class="date-time-picker">
+                <h2 id="day-of-week"></h2>
+                
+                <div class="date-container">
+                    <button onclick="monthBack()" type="button" class="arrow-btn-avail" id="date-select-prev"></button>
+                    <h2 id="month"></h2>
+                    <button onclick="monthForward()" type="button" class="arrow-btn-avail" id="date-select-next"></button>
+                </div>
+                
+                <div class="date-container">
+                    <h2 id="date-of-month"></h2>
+                    <button onclick="toggleDayDropdown()" type="button" class="arrow-btn-avail dropdownBtn" id="date-select-dropdown"></button>
+                    <div class="dropdown-content" id="date-dropdown">
+                    </div>
+                </div>
+                
+                <h2>at</h2>
+                
+                <div class="date-container">
+                    <h2 id="hour"></h2>
+                    <button onclick="toggleHourDropdown()" type="button" class="arrow-btn-avail dropdownBtn" id="hour-select-dropdown"></button>
+                    <div class="dropdown-content" id="hour-dropdown">
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="booking-subsection">
-        <h1>with</h1>
-    </div>
-    <div class="booking-subsection">
-        <h1>for</h1>
-    </div>
-    <div class="booking-subsection">
-        <h1>you are</h1>
-    </div>
-    <div class="booking-subsection">
-        <h1>confirm</h1>
+        <div class="booking-subsection">
+            <h1>with</h1>
+            <div id="expert-picker">
+                <div class="row">
+                    <div class="col mx-5">
+                        <div onclick="selectBeatrix()" class="select-expert-card" id="beatrix-expert-card">
+                            <img id="beatrix-img" class="book-expert-image" src="imgs/beatrix.png" alt="Image of expert Beatrix">
+                            <h2 id="beatrix-text" class="expert-name">beatrix</h2>
+                        </div>
+                    </div>
+                    <div class="col mx-5">
+                        <div onclick="selectRuby()" class="select-expert-card select-expert-card-unavail" id="ruby-expert-card">
+                            <img id="ruby-img" class="book-expert-image book-expert-image-unavail" src="imgs/ruby.png" alt="Image of expert Beatrix">
+                            <h2 id="ruby-text" class="expert-name expert-name-unavail">ruby</h2>
+                            <span class="unavail-tag">unavailable</span>
+                        </div>
+                    </div>
+                    <div class="col mx-5">
+                        <div onclick="selectCasper()" class="select-expert-card" id="casper-expert-card">
+                            <img id="casper-img" class="book-expert-image" src="imgs/casper.png" alt="Image of expert Beatrix">
+                            <h2 id="casper-text" class="expert-name">casper</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="booking-subsection">
+            <h1>for</h1>
+            <div class="row">
+                <div class="col">
+                    <div class="package-holder package-holder-booking">
+                        <h3>basic ($38)</h3>
+                        <hr class="splitter">
+                        
+                        <div class="package-dif">
+                            <p class="service-provided">palm reading</p>
+                            <p class="service-not-provided">tarot cards</p>
+                            <p class="service-not-provided">spiritual detox</p>
+                            <p class="service-not-provided">spirit protection</p>
+                            <p class="service-not-provided">chakra balancing</p>
+                        </div>
+                        <button onclick="selectBasic()" class="btn btn-outline-secondary" id="btn-select-basic"><span>select</span></button>
+                    </div>
+                </div>
+                <div class="col">
+                    <div style="transform: translate(0, -50px);" class="package-holder package-holder-booking">
+                        <h3>essential ($58)</h3>
+                        <hr class="splitter">
+                        
+                        <div class="package-dif">
+                            <p class="service-provided">palm reading</p>
+                            <p class="service-provided">tarot cards</p>
+                            <p class="service-provided">spiritual detox</p>
+                            <p class="service-not-provided">spirit protection</p>
+                            <p class="service-not-provided">chakra balancing</p>
+                        </div>
+                        
+                        <button onclick="selectEssential()" class="btn btn-outline-secondary" id="btn-select-essential"><span>select</span></button>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="package-holder package-holder-booking">
+                        <h3>complete ($78)</h3>
+                        <hr class="splitter">
+
+                        <div class="package-dif">
+                            <p class="service-provided">palm reading</p>
+                            <p class="service-provided">tarot cards</p>
+                            <p class="service-provided">spiritual detox</p>
+                            <p class="service-provided">spirit protection</p>
+                            <p class="service-provided">chakra balancing</p>
+                        </div>
+                        <button onclick="selectComplete()" class="btn btn-outline-secondary" id="btn-select-complete"><span>select</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>    
+        <div class="booking-subsection">
+            <h1>you are</h1>
+            <form action="">
+                <div class="row my-3 gx-0">
+                    <div class="col">
+                        <input onchange="firstNameFunc()" type="text" name="first-name-field" id="first-name-field" placeholder="First Name">
+                    </div>
+                    <div class="col">
+                        <input onchange="lastNameFunc()" type="text" name="last-name-field" id="last-name-field" placeholder="Last Name">
+                    </div>
+                </div>
+                <div class="row my-3 gx-0">
+                    <div class="col">
+                        <input onchange="emailFunc()" type="email" name="email-field" id="email-field" placeholder="Email">
+                    </div>
+                    <div class="col">
+                        <input onchange="telFunc()" type="tel" name="tel-field" id="tel-field" placeholder="Phone Number">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="booking-subsection">
+            <h1>confirm</h1>
+            <p id="confirmation-msg">
+            </p>
+            <button onclick="confirm()" class="btn btn-primary">confirm</button>
+            <button onclick="clearAll()" class="btn btn-outline-secondary">cancel</button>
+        </div>
     </div>
 
+    <div class="popup" id="confirmation-popup">
+
+    </div>
+
+    <script src="main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>
