@@ -44,6 +44,7 @@ body {
 
 
 .package-holder-holder {
+    width: fit-content;
     text-align: center;
     align-content: center;
 }
@@ -58,7 +59,6 @@ body {
 }
 
 .package-holder {
-    width: 320px;
     padding: 70px 0px 50px 0;
     background: rgb(248, 61, 20);
     background: linear-gradient(to right bottom, rgb(248, 61, 20, 38%), rgb(130, 4, 174, 44%));
@@ -368,10 +368,10 @@ span.unavail-tag {
 
 .main-content {
     position: absolute;
-    top: 50%;
     left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    margin-top: 100px;
 }
 
 .main-content-booking {
