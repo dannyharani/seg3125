@@ -2,7 +2,7 @@ let params = new URLSearchParams(document.location.search);
 let expertParam = params.get("expert");
 let packageParam = params.get("package");
 
-let selectedPackage, selectedExpert;
+let selectedPackage, selectedExpert, numberOfPeople, totalCost;
 
 /* Expert booking section */
 if (expertParam != null)
@@ -102,7 +102,40 @@ function selectComplete() {
     updateConfirm();
 }
 
-/* Bottom Form section */
+// Number of bookings
+
+function peopleMore()
+{
+    if (numberOfPeople < 5)
+    {
+        document.getElementById("people-select-prev").classList.remove("arrow-btn-unavail");
+
+        numberOfPeople++;
+        document.getElementById("peopleCount").innerHTML = numberOfPeople;
+        if (numberOfPeople == 5)
+        {
+            document.getElementById("people-select-next").classList.add("arrow-btn-unavail");
+        }
+
+    }
+}
+
+function peopleLess()
+{
+    if (numberOfPeople > 1)
+    {
+        document.getElementById("people-select-next").classList.remove("arrow-btn-unavail");
+
+        numberOfPeople--;
+        document.getElementById("peopleCount").innerHTML = numberOfPeople;
+        if (numberOfPeople == 1)
+        {
+            document.getElementById("people-select-prev").classList.add("arrow-btn-unavail");
+        }
+    }
+}
+
+/* Bottom Form section and Confirmations */
 var firstName, lastName, email, tel;
 
 const firstNameField = document.getElementById("first-name-field");
@@ -191,36 +224,69 @@ function confirmAll() {
     dateConfirm();
     // for visual update
 
-    if (!firstNameConfirm()) {
+    let isOkay = true;
 
-        return false;
+    if (!firstNameConfirm()) {
+        isOkay = false;
     }
     if (!lastNameConfirm()) {
-        return false;
+        isOkay = false;
     }
     if (!emailConfirm()) {
-        return false;
+        isOkay = false;
     }
     if (!telConfirm()) {
-        return false;
+        isOkay = false;
     }
     if (!dateConfirm()) {
-        return false;
+        isOkay = false;
+    }
+    if (selectedPackage == undefined) {
+        document.getElementById("package-picker").classList.add("error");
+        isOkay = false;
+    } else {
+        document.getElementById("package-picker").classList.remove("error");
+    }
+    if (selectedExpert == undefined) {
+        document.getElementById("expert-picker-holder").classList.add("error");
+        isOkay = false;
+    } else {
+        document.getElementById("expert-picker-holder").classList.remove("error");
     }
 
-    return true;
+    return isOkay && selectedPackage != undefined && selectedExpert != undefined;
+}
+
+function setTotalCost()
+{
+    if (selectedPackage == "basic") {
+        totalCost = 38 * numberOfPeople;
+    } else if (selectedPackage == "essential") {
+        totalCost = 58 * numberOfPeople;
+    } else if (selectedPackage == "complete") {
+        totalCost = 78 * numberOfPeople;
+    }
 }
 
 function confirm() {
-    confirmAll();
+    if (!confirmAll())
+    {
+        return false;
+    }
+
+    setTotalCost();
 
     document.getElementById("confirmation-popup").classList.toggle("show");
+
+    while (document.getElementById("confirmation-popup").firstChild) {
+        document.getElementById("confirmation-popup").removeChild(document.getElementById("confirmation-popup").firstChild);
+    }
 
     let h1Confirm = document.createElement("h1");
     h1Confirm.innerHTML = "Booking Made! Reference: " + Math.floor(Math.random()*100000);
 
     let h2Confirm = document.createElement("h2");
-    h2Confirm.innerHTML = "Booking made for " + firstName + "'s appointment on " + months[month] + " " + day + ", with " + selectedExpert + " for the " + selectedPackage + " package.";
+    h2Confirm.innerHTML = "Booking made for " + firstName + "'s appointment on " + months[month] + " " + day + ", with " + selectedExpert + " for the " + selectedPackage + " package. <br> Your total will be: $" + totalCost;
 
     let goHome = document.createElement("a");
     goHome.classList.add("btn");
@@ -234,14 +300,11 @@ function confirm() {
     document.getElementById("confirmation-popup").appendChild(goHome);
 }
 
-function clearAll() {
-    // dosomething
-}
-
 function updateConfirm()
 {
     if (confirmAll() && selectedPackage != undefined && selectedExpert != undefined) {
-        document.getElementById("confirmation-msg").innerHTML = "Confirm " + firstName + "'s appointment on " + months[month] + " " + day + ", with " + selectedExpert + " for the " + selectedPackage + " package.";
+        setTotalCost();
+        document.getElementById("confirmation-msg").innerHTML = "Confirm " + firstName + "'s appointment on " + months[month] + " " + day + ", with " + selectedExpert + " for the " + selectedPackage + " package.<br>Your total will be: $" + totalCost;
     }
     else {
         document.getElementById("confirmation-msg").innerHTML = "Please complete the form above";
@@ -263,16 +326,16 @@ let dayOfWeek = date.getDay();
 
 let monthDiff = 0;
 
-initDate();
+init();
 
-function initDate()
+function init()
 {
     day++; // book for tmr earliest
     document.getElementById("day-of-week").innerHTML = daysOfWeek[dayOfWeek];
     document.getElementById("month").innerHTML = months[month];
     document.getElementById("date-of-month").innerHTML = day;
     document.getElementById("hour").innerHTML = validHours[0];
-
+    numberOfPeople = 1;
 
     let hourDropDown = document.getElementById("hour-dropdown");
     validHours.forEach((validHour) => {

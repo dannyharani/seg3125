@@ -76,7 +76,7 @@
                 </div>
             </div>
         </div>
-        <div class="booking-subsection">
+        <div class="booking-subsection" id="expert-picker-holder">
             <h1>with</h1>
             <div id="expert-picker">
                 <div class="row">
@@ -104,7 +104,7 @@
 
         </div>
         
-        <div class="booking-subsection">
+        <div class="booking-subsection" id="package-picker">
             <h1>for</h1>
             <div class="row">
                 <div class="col">
@@ -175,6 +175,14 @@
                     </div>
                 </div>
             </form>
+        </div>
+        <div id="number-of-people" class="booking-subsection">
+            <h1>how many</h1>
+            <div class="people-container">
+                <button onclick="peopleLess()" type="button" class="arrow-btn-avail arrow-btn-unavail" id="people-select-prev"></button>
+                <h2 id="peopleCount">1</h2>
+                <button onclick="peopleMore()" type="button" class="arrow-btn-avail" id="people-select-next"></button>
+            </div>
         </div>
         <div class="booking-subsection">
             <h1>confirm</h1>

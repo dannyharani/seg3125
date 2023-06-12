@@ -132,6 +132,7 @@ body {
 .booking-subsection {
     text-align: center;
     margin: 70px;
+    padding: 15px;
 }
 
 .date-selector-container {
@@ -320,11 +321,10 @@ span.unavail-tag {
 
 .date-container-less {
     display: inline-flex;
-    min-width: 130px;
     margin-top: 20px;
 }
 
-.date-container .arrow-btn-avail {
+.arrow-btn-avail {
     background-color: #00AD45;
     background-image: url(imgs/arrow-left.png);
     background-position: center;
@@ -337,11 +337,20 @@ span.unavail-tag {
     border-style: none;
 }
 
-.date-container .arrow-btn-unavail {
-    background-color: #6ca3828e;
+.arrow-btn-unavail {
+    opacity: 40%;
 }
 
-#date-select-next {
+.arrow-btn-unavail:hover, .arrow-btn-unavail:focus {
+    opacity: 40%;
+    cursor: not-allowed;
+}
+
+.people-container {
+    display: inline-flex;
+}
+
+#date-select-next, #people-select-next {
     rotate: 180deg;
 }
 
@@ -415,6 +424,7 @@ input.error {
 .booking-subsection.error {
     border: solid;
     border-color: #ad001d;
+    border-radius: 10px;
 }
 
 input:active input:focus {
@@ -472,9 +482,10 @@ input:active input:focus {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     min-width: 60vw;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
     display: none;
     text-align: center;
+    padding: 20px;
 }
 
 .show {
@@ -483,4 +494,8 @@ input:active input:focus {
 
 #day-of-week {
     min-width: 165px;
+}
+
+#number-of-people {
+    margin-bottom: 0px;
 }
